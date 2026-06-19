@@ -1,0 +1,249 @@
+{
+  "meta": {
+    "title": "Oman Global Industrial Hub 2027",
+    "description": "Oman Global Industrial Hub 2027 — The Gateway to the Future of Smart Industry and the Investments of Tomorrow"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "sectors": "Sectors",
+    "summit": "Summit",
+    "whyOman": "Why Oman?",
+    "blog": "Blog",
+    "contact": "Contact Us",
+    "consultation": "Book Consultation",
+    "bookMeeting": "Book a Meeting"
+  },
+  "hero": {
+    "tagline": "The Gateway to the Future of Smart Industry and the Investments of Tomorrow",
+    "subtitle": "Oman Global Industrial Hub 2027",
+    "explore360": "Explore 360° Experience",
+    "scrollDown": "Discover More",
+    "location": "Muscat — Sultanate of Oman",
+    "date": "2027",
+    "countdown": {
+      "title": "Time Until the Exhibition",
+      "months": "Months",
+      "days": "Days",
+      "date": "January 11, 2027"
+    }
+  },
+  "stats": {
+    "title": "Numbers That Drive Decision-Making",
+    "subtitle": "Global and Regional Landscape",
+    "fdi": "OMR Billion",
+    "fdiLabel": "Total Foreign Direct Investment",
+    "companies": "+200",
+    "companiesLabel": "Exhibiting Companies",
+    "countries": "+15",
+    "countriesLabel": "Participating Countries",
+    "visitors": "+23,000",
+    "visitorsLabel": "Specialized Visitors",
+    "deals": "250–300",
+    "dealsLabel": "Million USD Target Deal Volume",
+    "digitalTransform": "1.8",
+    "digitalTransformLabel": "Trillion USD Digital Industrial Transform by 2030",
+    "gulfInvestment": "600",
+    "gulfInvestmentLabel": "Billion USD Gulf Industrial Investment"
+  },
+  "about": {
+    "title": "Executive Summary",
+    "p1": "In light of the restructuring of global supply chains, major industrial companies are moving toward diversifying their manufacturing locations beyond their traditional hubs, and establishing more flexible and stable regional production bases.",
+    "p2": "Oman Global Industrial Hub 2027 emerges as a strategic platform to position the Sultanate of Oman as a regional center for advanced industries, attract industrial investments, facilitate technology transfer, and build cross-border manufacturing partnerships.",
+    "gateway": "The event is not a traditional equipment exhibition — it is an integrated industrial investment gateway that connects within a unified system in the Sultanate of Oman:",
+    "pillars": {
+      "entrepreneurs": "Industrial Entrepreneurs",
+      "technology": "Global Technology",
+      "decisionMakers": "Decision Makers",
+      "capital": "Venture Capital",
+      "zones": "Industrial Zones"
+    }
+  },
+  "sectors": {
+    "title": "Exhibition Sectors",
+    "subtitle": "The Map of Participating Investment and Industrial Opportunities",
+    "description": "The spaces are designed to serve as dynamic platforms for forming international business partnerships and localizing technology, featuring six strategic sectors covering the entire modern production cycle.",
+    "items": {
+      "industry40": {
+        "title": "Industry 4.0 & Automation",
+        "tagline": "Factories of the Future… are built today",
+        "description": "The leading destination for smart production technologies that double efficiency and reduce costs. Industrial robotics, 3D printing, digital control systems, and AI applications."
+      },
+      "machinery": {
+        "title": "Heavy Machinery & Equipment",
+        "tagline": "The muscles of production and makers of impact",
+        "description": "The largest space dedicated to showcasing the latest equipment and production lines that form the backbone of productive and processing sectors."
+      },
+      "digital": {
+        "title": "Digital Transformation & Industrial IoT",
+        "tagline": "Data that drives profits and protects investments",
+        "description": "The technological platform for digitizing industrial operations and connecting machines to smart networks."
+      },
+      "logistics": {
+        "title": "Smart Logistics & Supply Chain",
+        "tagline": "Arteries of open international trade",
+        "description": "The logistics solutions hub that ensures the flexibility of goods movement and facilitates international trade flows."
+      },
+      "investment": {
+        "title": "Investment & Business Development",
+        "tagline": "Where capital meets strategic projects",
+        "description": "The beating heart of deal-making, dedicated to entities that finance, support, and develop industrial infrastructure."
+      },
+      "green": {
+        "title": "Green Industry & Sustainability",
+        "tagline": "Sustainability that enhances competitiveness",
+        "description": "Renewable energy solutions for factories, recycling systems, and industrial water treatment technologies."
+      }
+    }
+  },
+  "summit": {
+    "title": "Oman Industrial Investment Summit",
+    "subtitle": "Summit Themes & Agenda",
+    "days": {
+      "day1": {
+        "title": "Day One",
+        "topics": ["Industry as a pillar of economic security", "Industrial localization strategies", "Smart factories"]
+      },
+      "day2": {
+        "title": "Day Two",
+        "topics": ["Artificial intelligence in production", "Industrial sustainability", "Industrial project financing"]
+      },
+      "day3": {
+        "title": "Day Three",
+        "topics": ["International partnerships", "Signing industrial agreements", "B2B Matchmaking"]
+      }
+    }
+  },
+  "vision": {
+    "title": "Oman Vision 2040",
+    "subtitle": "Sultanate of Oman: The Next Strategic Destination",
+    "description": "Oman was not chosen to host this exceptional event by chance; rather, it was based on solid economic fundamentals, a firm government direction, and exceptional incentives to increase the industrial sector's contribution to 25% of GDP.",
+    "gdp": "25%",
+    "gdpLabel": "Target Industrial Sector Contribution to GDP"
+  },
+  "whyOman": {
+    "title": "Why Oman?",
+    "subtitle": "True Competitive Assets",
+    "items": {
+      "sohar": { "title": "Sohar Port", "desc": "Industrial gateway to the Gulf" },
+      "salalah": { "title": "Salalah Port", "desc": "Global re-export center" },
+      "stability": { "title": "Political & Regulatory Stability", "desc": "Safe investment environment" },
+      "logistics": { "title": "Advanced Logistics Infrastructure", "desc": "Global port network & air connectivity" },
+      "duqm": { "title": "Duqm Port", "desc": "Strategic hub for heavy projects" },
+      "zones": { "title": "14 Industrial Zones", "desc": "5 fully integrated free zones" },
+      "trade": { "title": "International Trade Agreements", "desc": "Access to global markets" }
+    },
+    "quote": "Oman is not just a market — it is a regional manufacturing and export platform connecting Asia with Africa and the Gulf"
+  },
+  "event": {
+    "title": "Event Structure",
+    "subtitle": "We do not sell exhibition space — we deliver measurable results",
+    "metrics": {
+      "initiatives": "3",
+      "initiativesLabel": "National Industrial Initiatives",
+      "agreements": "50+",
+      "agreementsLabel": "Investor-Entrepreneur Agreements",
+      "meetings": "150+",
+      "meetingsLabel": "Closed B2B Meetings",
+      "cLevel": "+30%",
+      "cLevelLabel": "C-Level Decision Makers"
+    },
+    "features": {
+      "deals": "A platform designed for signing major contracts and strategic partnerships",
+      "access": "Direct and exclusive access to CEOs and investors with financial authority",
+      "infrastructure": "Integrated infrastructure near Muscat International Airport"
+    }
+  },
+  "cta": {
+    "title": "Launch Toward Global Industrial Horizons",
+    "subtitle": "From the heart of Oman… a launch toward global industrial horizons",
+    "bookMeeting": "Book a Meeting",
+    "bookConsultation": "Book a Consultation"
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Latest news and articles on industry and investment in Oman",
+    "readMore": "Read More",
+    "posts": {
+      "post1": {
+        "title": "Oman Leads the Industrial Scene in the Gulf",
+        "excerpt": "Industrial output in Gulf countries is recording 7% to 9% annual growth, with Oman leading in attracting Asian and Gulf capital for industrial localization.",
+        "date": "June 15, 2026",
+        "category": "Economy"
+      },
+      "post2": {
+        "title": "Industry 4.0 Revolution and Supply Chain Restructuring",
+        "excerpt": "Global spending on industrial digital transformation is expected to surge to $1.8 trillion by 2030.",
+        "date": "June 10, 2026",
+        "category": "Technology"
+      },
+      "post3": {
+        "title": "Duqm Port: Strategic Hub for Heavy Projects",
+        "excerpt": "Duqm Port offers unprecedented strategic integration connecting manufacturers to Asian, African, and Gulf markets.",
+        "date": "June 5, 2026",
+        "category": "Logistics"
+      },
+      "post4": {
+        "title": "Green Industry: Sustainability Enhances Competitiveness",
+        "excerpt": "Renewable energy solutions and recycling systems open new horizons for Omani factories.",
+        "date": "June 1, 2026",
+        "category": "Sustainability"
+      }
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We are here to answer your inquiries and help you participate in the exhibition",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone Number",
+    "country": "Country",
+    "message": "Message",
+    "send": "Send",
+    "success": "Your message has been sent successfully! We will contact you soon.",
+    "info": {
+      "address": "Muscat — Sultanate of Oman",
+      "email": "info@sama-om.com",
+      "phone1": "+968 9097 8700",
+      "phone2": "+968 9405 6359",
+      "website": "www.sama-om.com"
+    }
+  },
+  "consultation": {
+    "title": "Book a Consultation",
+    "subtitle": "Book a free consultation with our team to explore participation opportunities",
+    "name": "Full Name",
+    "email": "Email",
+    "phone": "Phone Number",
+    "company": "Company Name",
+    "sector": "Sector",
+    "date": "Preferred Date",
+    "time": "Preferred Time",
+    "notes": "Additional Notes",
+    "book": "Book Consultation",
+    "success": "Your consultation has been booked successfully! We will contact you to confirm.",
+    "sectors": {
+      "industry40": "Industry 4.0 & Automation",
+      "machinery": "Heavy Machinery & Equipment",
+      "digital": "Digital Transformation & IoT",
+      "logistics": "Logistics & Supply Chain",
+      "investment": "Investment & Business Development",
+      "green": "Green Industry",
+      "other": "Other"
+    }
+  },
+  "footer": {
+    "description": "Oman Global Industrial Hub 2027 — A strategic platform to position the Sultanate of Oman as a regional center for advanced industries.",
+    "quickLinks": "Quick Links",
+    "services": "Services",
+    "reachUs": "Reach Out to Us",
+    "rights": "Copyright © 2027 Panomatics / Sama Oman. All rights reserved."
+  },
+  "panorama": {
+    "title": "Explore Oman in 360°",
+    "subtitle": "An immersive experience at the heart of Omani industry",
+    "loading": "Loading VR Experience...",
+    "enableGyro": "Enable Gyroscope to Explore",
+    "hint": "Move your mouse to explore — on mobile, tilt your device"
+  }
+}
