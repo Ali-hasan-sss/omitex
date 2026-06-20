@@ -5,6 +5,8 @@ import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { siteImages } from "@/lib/site-images";
 import Card3D from "@/components/ui/Card3D";
+import SectionReveal from "@/components/ui/SectionReveal";
+import SectionHeading from "@/components/ui/SectionHeading";
 
 const sectorKeys = [
   "industry40",
@@ -28,17 +30,17 @@ export default function SectorsSection() {
   const t = useTranslations("sectors");
 
   return (
-    <section id="sectors" className="section-padding bg-surface">
+    <SectionReveal id="sectors" variant={2} className="section-padding bg-surface">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, rotateX: 18, y: 40 }}
+          whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
           className="mb-16 text-center"
+          style={{ transformStyle: "preserve-3d" }}
         >
-          <h2 className="font-heading mb-4 text-3xl font-bold md:text-4xl">
-            <span className="gradient-text">{t("title")}</span>
-          </h2>
+          <SectionHeading className="mb-4">{t("title")}</SectionHeading>
           <p className="mx-auto max-w-2xl text-text-muted">{t("subtitle")}</p>
           <p className="mx-auto mt-4 max-w-3xl text-sm text-text-muted">
             {t("description")}
@@ -49,13 +51,15 @@ export default function SectorsSection() {
           {sectorKeys.map((key, i) => (
             <motion.div
               key={key}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              className="h-full"
+              initial={{ opacity: 0, rotateX: 22, y: 50, scale: 0.92 }}
+              whileInView={{ opacity: 1, rotateX: 0, y: 0, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
+              transition={{ delay: i * 0.1, duration: 0.75 }}
+              style={{ transformStyle: "preserve-3d" }}
             >
-              <Card3D className="group card-solid hover-border overflow-hidden rounded-2xl border border-border transition-colors">
-                <div className="relative h-44 overflow-hidden">
+              <Card3D className="group card-solid hover-border flex h-full flex-col overflow-hidden rounded-2xl border border-border transition-colors">
+                <div className="relative h-44 shrink-0 overflow-hidden">
                   <Image
                     src={sectorImages[i]}
                     alt={t(`items.${key}.title`)}
@@ -67,14 +71,14 @@ export default function SectorsSection() {
                     {String(i + 1).padStart(2, "0")}
                   </span>
                 </div>
-                <div className="bg-surface-light p-6">
+                <div className="flex min-h-[220px] flex-1 flex-col bg-surface-light p-6">
                   <h3 className="font-heading mb-2 text-lg font-semibold text-primary">
                     {t(`items.${key}.title`)}
                   </h3>
-                  <p className="mb-3 text-sm font-medium text-teal italic">
+                  <p className="mb-3 shrink-0 text-sm font-medium text-teal italic">
                     &ldquo;{t(`items.${key}.tagline`)}&rdquo;
                   </p>
-                  <p className="text-sm leading-relaxed text-text-muted">
+                  <p className="flex-1 text-sm leading-relaxed text-text-muted">
                     {t(`items.${key}.description`)}
                   </p>
                 </div>
@@ -83,6 +87,6 @@ export default function SectorsSection() {
           ))}
         </div>
       </div>
-    </section>
+    </SectionReveal>
   );
 }

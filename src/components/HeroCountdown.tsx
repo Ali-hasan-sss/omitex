@@ -47,12 +47,14 @@ export default function HeroCountdown() {
     <div className="hero-countdown">
       <p className="hero-countdown-label">{t("title")}</p>
       <div className="hero-countdown-grid">
-        <div className="hero-countdown-item">
+        <div className="hero-countdown-item hero-countdown-item--months">
           <span className="hero-countdown-value">{remaining.months}</span>
           <span className="hero-countdown-unit">{t("months")}</span>
         </div>
-        <span className="hero-countdown-separator">:</span>
-        <div className="hero-countdown-item">
+        <span className="hero-countdown-separator" aria-hidden="true">
+          :
+        </span>
+        <div className="hero-countdown-item hero-countdown-item--days">
           <span className="hero-countdown-value">{remaining.days}</span>
           <span className="hero-countdown-unit">{t("days")}</span>
         </div>

@@ -119,7 +119,7 @@ export default function ConsultationPage() {
 
               <button
                 type="submit"
-                className="animate-pulse-glow w-full rounded-full bg-primary py-3 text-sm font-semibold text-white transition-all hover:bg-primary-light"
+                className="btn-3d animate-pulse-glow w-full rounded-full bg-primary py-3 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
               >
                 {t("book")}
               </button>

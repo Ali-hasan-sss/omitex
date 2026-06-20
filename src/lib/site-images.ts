@@ -10,9 +10,19 @@ export const siteImages = {
   ports: {
     duqm: `${PDF}/img-p02-002-3655x1536.png`,
     sohar: `${IMG}/ports/sohar.jpg`,
-    muttrah: `${PDF}/img-p23-035-2168x1531.png`,
+    muttrah: `${PDF}/img-p28-041-1760x1247.png`,
     salalah: `${IMG}/ports/salalah.jpeg`,
-    logistics: `${PDF}/img-p17-027-2528x1468.png`,
+    logistics: `${PDF}/img-p28-041-1760x1247.png`,
+  },
+
+  whyOman: {
+    sohar: `${IMG}/ports/sohar.jpg`,
+    salalah: `${IMG}/ports/salalah.jpeg`,
+    duqm: `${PDF}/img-p02-002-3655x1536.png`,
+    logistics: `${PDF}/img-p28-041-1760x1247.png`,
+    stability: `${PDF}/img-p15-025-684x596.png`,
+    zones: `${PDF}/img-p06-016-2663x1284.png`,
+    trade: `${PDF}/img-p22-034-2400x1422.png`,
   },
 
   sectors: {

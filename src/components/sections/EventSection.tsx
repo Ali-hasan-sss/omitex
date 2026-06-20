@@ -3,6 +3,9 @@
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import Card3D from "@/components/ui/Card3D";
+import AnimatedCounter from "@/components/ui/AnimatedCounter";
+import SectionReveal from "@/components/ui/SectionReveal";
+import SectionHeading from "@/components/ui/SectionHeading";
 
 export default function EventSection() {
   const t = useTranslations("event");
@@ -21,17 +24,17 @@ export default function EventSection() {
   ];
 
   return (
-    <section className="section-padding bg-surface">
+    <SectionReveal variant={0} className="section-padding bg-surface">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, rotateX: -16, y: 40 }}
+          whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
           className="mb-16 text-center"
+          style={{ transformStyle: "preserve-3d" }}
         >
-          <h2 className="font-heading mb-4 text-3xl font-bold md:text-4xl">
-            <span className="gradient-text">{t("title")}</span>
-          </h2>
+          <SectionHeading className="mb-4">{t("title")}</SectionHeading>
           <p className="text-text-muted">{t("subtitle")}</p>
         </motion.div>
 
@@ -39,15 +42,19 @@ export default function EventSection() {
           {metrics.map((metric, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              className="h-full"
+              initial={{ opacity: 0, rotateX: 20, scale: 0.88 }}
+              whileInView={{ opacity: 1, rotateX: 0, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
+              transition={{ delay: i * 0.1, duration: 0.75 }}
+              style={{ transformStyle: "preserve-3d" }}
             >
-              <Card3D className="card-solid rounded-2xl p-6 text-center">
-                <span className="gradient-text font-heading text-3xl font-bold">
-                  {metric.value}
-                </span>
+              <Card3D className="card-solid flex h-full min-h-[140px] flex-col items-center justify-center rounded-2xl p-6 text-center">
+                <AnimatedCounter
+                  value={metric.value}
+                  className="gradient-text font-heading text-3xl font-bold"
+                  suffixClassName="text-xl text-primary"
+                />
                 <p className="mt-2 text-sm text-text-muted">{metric.label}</p>
               </Card3D>
             </motion.div>
@@ -58,10 +65,11 @@ export default function EventSection() {
           {features.map((feature, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, rotateY: -12, y: 30 }}
+              whileInView={{ opacity: 1, rotateY: 0, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
+              transition={{ delay: i * 0.1, duration: 0.75 }}
+              style={{ transformStyle: "preserve-3d" }}
             >
               <Card3D className="flex items-start gap-3 rounded-xl border border-teal/20 bg-teal/5 p-5">
                 <span className="mt-0.5 text-teal">✓</span>
@@ -71,6 +79,6 @@ export default function EventSection() {
           ))}
         </div>
       </div>
-    </section>
+    </SectionReveal>
   );
 }

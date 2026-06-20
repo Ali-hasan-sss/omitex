@@ -26,9 +26,11 @@ export default function PanoramaSection() {
         <div className="absolute inset-0 z-[3] flex items-end">
           <div className="mx-auto w-full max-w-7xl px-4 pb-12 lg:px-8">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, rotateX: 18, y: 50 }}
+              whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
               viewport={{ once: true }}
+              transition={{ duration: 0.85 }}
+              style={{ transformStyle: "preserve-3d" }}
               className="hero-text-panel max-w-lg px-6 py-5"
             >
               <p className="mb-2 text-sm font-medium tracking-widest text-teal uppercase">
@@ -47,7 +49,7 @@ export default function PanoramaSection() {
           <button
             type="button"
             onClick={() => requestGyro()}
-            className="absolute bottom-24 left-1/2 z-10 -translate-x-1/2 rounded-full border border-primary/30 bg-surface/90 px-5 py-2 text-xs font-medium text-primary backdrop-blur-sm"
+            className="btn-3d absolute bottom-24 left-1/2 z-10 -translate-x-1/2 rounded-full border border-primary/30 bg-surface/90 px-5 py-2 text-xs font-medium text-primary backdrop-blur-sm"
           >
             {t("enableGyro")}
           </button>

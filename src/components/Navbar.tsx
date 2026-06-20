@@ -41,13 +41,29 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const isHome = pathname === "/";
+
   const headerBg = atTop
-    ? "bg-surface/95 shadow-sm backdrop-blur-md"
+    ? "bg-transparent shadow-none backdrop-blur-none"
     : "bg-surface/95 shadow-md backdrop-blur-md";
 
-  const linkClass = atTop
-    ? "font-heading text-sm font-medium text-primary transition-colors hover:text-primary-dark"
-    : "font-heading text-sm text-text-muted transition-colors hover:text-primary";
+  const linkClass = `${atTop
+    ? isHome
+      ? "font-heading text-sm font-bold text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.85)] transition-colors hover:text-teal-light"
+      : "font-heading text-sm font-bold text-primary transition-colors hover:text-primary-dark"
+    : "font-heading text-sm font-semibold text-primary transition-colors hover:text-primary-dark"} nav-link-3d`;
+
+  const localeClass = `${atTop
+    ? isHome
+      ? "rounded-full border border-white/40 bg-white/10 px-3 py-1 text-xs font-bold text-white backdrop-blur-sm transition-colors hover:bg-white/20"
+      : "rounded-full border border-primary/30 px-3 py-1 text-xs font-bold text-primary transition-colors hover:bg-primary/5"
+    : "rounded-full border border-primary/20 px-3 py-1 text-xs font-medium text-primary transition-colors hover:bg-primary/5"} btn-3d`;
+
+  const ctaClass = `${atTop && isHome
+    ? "hidden rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-primary shadow-lg transition-all hover:bg-white sm:block"
+    : "hidden rounded-full bg-primary px-4 py-2 text-xs font-semibold text-white transition-all hover:bg-primary-light sm:block"} btn-3d`;
+
+  const menuLineClass = atTop && isHome ? "bg-white" : "bg-primary";
 
   const links = [
     { href: "/", label: t("home") },
@@ -63,7 +79,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 z-50 w-full border-0 transition-transform duration-300 ease-out ${headerBg} ${
+      className={`fixed top-0 z-50 w-full border-0 transition-all duration-300 ease-out ${headerBg} ${
         visible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
@@ -88,14 +104,14 @@ export default function Navbar() {
           <Link
             href={pathname}
             locale={switchLocale}
-            className="rounded-full border border-primary/20 px-3 py-1 text-xs font-medium text-primary transition-colors hover:bg-primary/5"
+            className={localeClass}
           >
             {switchLocale === "ar" ? "عربي" : "EN"}
           </Link>
 
           <Link
             href="/consultation"
-            className="hidden rounded-full bg-primary px-4 py-2 text-xs font-semibold text-white transition-all hover:bg-primary-light sm:block"
+            className={ctaClass}
           >
             {t("consultation")}
           </Link>
@@ -106,27 +122,31 @@ export default function Navbar() {
             aria-label="Toggle menu"
           >
             <span
-              className={`block h-0.5 w-6 bg-primary transition-transform ${menuOpen ? "translate-y-2 rotate-45" : ""}`}
+              className={`block h-0.5 w-6 transition-transform ${menuLineClass} ${menuOpen ? "translate-y-2 rotate-45" : ""}`}
             />
             <span
-              className={`block h-0.5 w-6 bg-primary transition-opacity ${menuOpen ? "opacity-0" : ""}`}
+              className={`block h-0.5 w-6 transition-opacity ${menuLineClass} ${menuOpen ? "opacity-0" : ""}`}
             />
             <span
-              className={`block h-0.5 w-6 bg-primary transition-transform ${menuOpen ? "-translate-y-2 -rotate-45" : ""}`}
+              className={`block h-0.5 w-6 transition-transform ${menuLineClass} ${menuOpen ? "-translate-y-2 -rotate-45" : ""}`}
             />
           </button>
         </div>
       </nav>
 
       {menuOpen && (
-        <div className="border-t border-border bg-surface/98 backdrop-blur-md lg:hidden">
+        <div className={`border-t lg:hidden ${atTop && isHome ? "border-white/20 bg-primary-dark/90 backdrop-blur-md" : "border-border bg-surface/98 backdrop-blur-md"}`}>
           <div className="flex flex-col gap-1 px-4 py-4">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="rounded-lg px-3 py-2 text-sm text-text-muted transition-colors hover:bg-primary/5 hover:text-primary"
+                className={`rounded-lg px-3 py-2 text-sm font-semibold transition-colors ${
+                  atTop && isHome
+                    ? "text-white/90 hover:bg-white/10 hover:text-white"
+                    : "text-text-muted hover:bg-primary/5 hover:text-primary"
+                }`}
               >
                 {link.label}
               </Link>
@@ -134,7 +154,7 @@ export default function Navbar() {
             <Link
               href="/consultation"
               onClick={() => setMenuOpen(false)}
-              className="mt-2 rounded-full bg-primary px-4 py-2 text-center text-sm font-semibold text-white"
+              className="btn-3d mt-2 rounded-full bg-primary px-4 py-2 text-center text-sm font-semibold text-white"
             >
               {t("consultation")}
             </Link>

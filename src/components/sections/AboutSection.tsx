@@ -5,6 +5,8 @@ import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { siteImages } from "@/lib/site-images";
 import Card3D from "@/components/ui/Card3D";
+import SectionReveal from "@/components/ui/SectionReveal";
+import SectionHeading from "@/components/ui/SectionHeading";
 
 export default function AboutSection() {
   const t = useTranslations("about");
@@ -18,26 +20,28 @@ export default function AboutSection() {
   ];
 
   return (
-    <section id="about" className="section-padding">
+    <SectionReveal id="about" variant={0} className="section-padding">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="grid items-center gap-16 lg:grid-cols-2">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, rotateY: -14, x: -40 }}
+            whileInView={{ opacity: 1, rotateY: 0, x: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.15 }}
+            style={{ transformStyle: "preserve-3d" }}
           >
-            <h2 className="font-heading mb-6 text-3xl font-bold md:text-4xl">
-              <span className="gradient-text">{t("title")}</span>
-            </h2>
+            <SectionHeading className="mb-6">{t("title")}</SectionHeading>
             <p className="mb-4 leading-relaxed text-text-muted">{t("p1")}</p>
             <p className="leading-relaxed text-text-muted">{t("p2")}</p>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, rotateY: 14, x: 40 }}
+            whileInView={{ opacity: 1, rotateY: 0, x: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.25 }}
             className="space-y-6"
+            style={{ transformStyle: "preserve-3d" }}
           >
             <div className="relative h-64 overflow-hidden rounded-2xl">
               <Image
@@ -66,6 +70,6 @@ export default function AboutSection() {
           </motion.div>
         </div>
       </div>
-    </section>
+    </SectionReveal>
   );
 }

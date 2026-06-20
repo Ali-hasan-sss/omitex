@@ -12,56 +12,64 @@ export default function HeroSection() {
 
   return (
     <section className="relative flex min-h-screen items-center justify-center px-3 sm:px-4">
-      <div
-        className={`hero-text-panel relative z-10 mx-auto w-full text-center ${
-          isEn
-            ? "max-w-[15rem] px-3 py-4 sm:max-w-[17rem] sm:px-4 sm:py-5"
-            : "max-w-xs px-4 py-5 sm:max-w-md sm:px-5 sm:py-7 md:max-w-lg md:px-6 md:py-8 lg:max-w-xl"
-        }`}
-      >
-        <motion.p
+      <div className="hero-text-panel relative z-10 mx-auto text-center">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="font-heading hero-text-accent mb-2 text-xs font-semibold tracking-widest uppercase sm:mb-3 sm:text-sm"
+          className="hero-text-accent-slot"
         >
-          {t("location")} · {t("date")}
-        </motion.p>
+          <p
+            className={`font-heading hero-text-accent font-semibold tracking-widest uppercase ${
+              isEn ? "text-[0.65rem] sm:text-xs" : "text-xs sm:text-sm"
+            }`}
+          >
+            {t("location")} · {t("date")}
+          </p>
+        </motion.div>
 
-        <motion.h1
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className={`font-heading hero-title mx-auto mb-3 max-w-full font-bold leading-snug sm:mb-4 ${
-            isEn
-              ? "text-lg sm:text-xl md:text-2xl"
-              : "text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
-          }`}
+          className="hero-title-slot"
         >
-          {t("tagline")}
-        </motion.h1>
+          <h1
+            className={`font-heading hero-title w-full font-bold ${
+              isEn
+                ? "text-[0.95rem] leading-snug sm:text-base md:text-lg lg:text-xl"
+                : "text-2xl leading-snug sm:text-3xl md:text-4xl lg:text-5xl"
+            }`}
+          >
+            {t("tagline")}
+          </h1>
+        </motion.div>
 
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
-          className={`hero-subtitle mx-auto mb-5 max-w-full sm:mb-6 ${
-            isEn ? "text-xs sm:text-sm" : "text-sm sm:text-base md:text-lg"
-          }`}
+          className="hero-subtitle-slot"
         >
-          {t("subtitle")}
-        </motion.p>
+          <p
+            className={`hero-subtitle w-full ${
+              isEn ? "text-[0.7rem] sm:text-xs" : "text-sm sm:text-base md:text-lg"
+            }`}
+          >
+            {t("subtitle")}
+          </p>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8 }}
-          className="flex flex-col items-center gap-4 sm:gap-5"
+          className="hero-actions-slot"
         >
           <HeroCountdown />
           <Link
             href="/consultation"
-            className="rounded-full bg-primary px-6 py-2.5 text-xs font-semibold text-white shadow-lg transition-all hover:bg-primary-light sm:px-8 sm:py-3 sm:text-sm"
+            className="btn-3d rounded-full bg-primary px-6 py-2.5 text-xs font-semibold text-white shadow-lg transition-colors hover:bg-primary-light sm:px-8 sm:py-3 sm:text-sm"
           >
             {t("scrollDown")}
           </Link>

@@ -82,12 +82,13 @@ export default function Card3D({
   };
 
   const hasGroup = /\bgroup\b/.test(className);
+  const hasFullHeight = /\bh-full\b/.test(className);
   const innerClassName = className.replace(/\bgroup\b/g, "").replace(/\s+/g, " ").trim();
 
   return (
     <div
       ref={sceneRef}
-      className={`card-3d-scene${hasGroup ? " group" : ""}${isHovering ? " card-3d-hovered" : ""}`}
+      className={`card-3d-scene${hasGroup ? " group" : ""}${hasFullHeight ? " h-full" : ""}${isHovering ? " card-3d-hovered" : ""}`}
       onMouseEnter={onMouseEnter}
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
@@ -100,7 +101,9 @@ export default function Card3D({
         style={{ transform }}
       >
         <div className="card-3d-shine" aria-hidden />
-        <div className="card-3d-content">{children}</div>
+        <div className={`card-3d-content${hasFullHeight ? " h-full" : ""}`}>
+          {children}
+        </div>
         <div className="card-3d-shadow" aria-hidden />
       </div>
     </div>
