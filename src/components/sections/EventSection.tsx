@@ -3,9 +3,9 @@
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import Card3D from "@/components/ui/Card3D";
-import AnimatedCounter from "@/components/ui/AnimatedCounter";
 import SectionReveal from "@/components/ui/SectionReveal";
 import SectionHeading from "@/components/ui/SectionHeading";
+import EventMetricsCube from "@/components/sections/EventMetricsCube";
 
 export default function EventSection() {
   const t = useTranslations("event");
@@ -24,7 +24,7 @@ export default function EventSection() {
   ];
 
   return (
-    <SectionReveal variant={0} className="section-padding bg-surface">
+    <SectionReveal variant={0} tone="base" className="section-padding">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <motion.div
           initial={{ opacity: 0, rotateX: -16, y: 40 }}
@@ -38,28 +38,16 @@ export default function EventSection() {
           <p className="text-text-muted">{t("subtitle")}</p>
         </motion.div>
 
-        <div className="mb-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {metrics.map((metric, i) => (
-            <motion.div
-              key={i}
-              className="h-full"
-              initial={{ opacity: 0, rotateX: 20, scale: 0.88 }}
-              whileInView={{ opacity: 1, rotateX: 0, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.75 }}
-              style={{ transformStyle: "preserve-3d" }}
-            >
-              <Card3D className="card-solid flex h-full min-h-[140px] flex-col items-center justify-center rounded-2xl p-6 text-center">
-                <AnimatedCounter
-                  value={metric.value}
-                  className="gradient-text font-heading text-3xl font-bold"
-                  suffixClassName="text-xl text-primary"
-                />
-                <p className="mt-2 text-sm text-text-muted">{metric.label}</p>
-              </Card3D>
-            </motion.div>
-          ))}
-        </div>
+        <motion.div
+          initial={{ opacity: 0, rotateY: 30, scale: 0.82 }}
+          whileInView={{ opacity: 1, rotateY: 0, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-16 flex justify-center"
+          style={{ transformStyle: "preserve-3d" }}
+        >
+          <EventMetricsCube metrics={metrics} />
+        </motion.div>
 
         <div className="grid gap-6 md:grid-cols-3">
           {features.map((feature, i) => (

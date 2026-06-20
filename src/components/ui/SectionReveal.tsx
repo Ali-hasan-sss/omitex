@@ -2,24 +2,13 @@
 
 import { motion } from "framer-motion";
 import type { ReactNode } from "react";
+import SectionWaves from "@/components/ui/SectionWaves";
 
 const variants = [
-  {
-    hidden: { opacity: 0, rotateX: 24, y: 80, scale: 0.92 },
-    visible: { opacity: 1, rotateX: 0, y: 0, scale: 1 },
-  },
-  {
-    hidden: { opacity: 0, rotateY: -20, x: -70, scale: 0.94 },
-    visible: { opacity: 1, rotateY: 0, x: 0, scale: 1 },
-  },
-  {
-    hidden: { opacity: 0, rotateX: -18, y: 60, rotateZ: -1.5, scale: 0.93 },
-    visible: { opacity: 1, rotateX: 0, y: 0, rotateZ: 0, scale: 1 },
-  },
-  {
-    hidden: { opacity: 0, rotateY: 20, x: 70, scale: 0.94 },
-    visible: { opacity: 1, rotateY: 0, x: 0, scale: 1 },
-  },
+  { hidden: { opacity: 0, y: 40 }, visible: { opacity: 1, y: 0 } },
+  { hidden: { opacity: 0, y: 36 }, visible: { opacity: 1, y: 0 } },
+  { hidden: { opacity: 0, y: 44 }, visible: { opacity: 1, y: 0 } },
+  { hidden: { opacity: 0, y: 38 }, visible: { opacity: 1, y: 0 } },
 ];
 
 interface SectionRevealProps {
@@ -27,6 +16,11 @@ interface SectionRevealProps {
   className?: string;
   id?: string;
   variant?: number;
+  /** base = أبيض كريمي صلب | alt = كريمي أغمق صلب */
+  tone?: "base" | "alt";
+  /** false للأقسام ذات صورة خلفية */
+  solid?: boolean;
+  waves?: boolean;
 }
 
 export default function SectionReveal({
@@ -34,21 +28,33 @@ export default function SectionReveal({
   className = "",
   id,
   variant = 0,
+  tone = "base",
+  solid = true,
+  waves = true,
 }: SectionRevealProps) {
   const v = variants[variant % variants.length];
+  const bgClass = solid
+    ? tone === "alt"
+      ? "section-solid-alt"
+      : "section-solid"
+    : "";
 
   return (
-    <motion.section
+    <section
       id={id}
-      className={className}
-      style={{ perspective: 1400, transformStyle: "preserve-3d" }}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.12, margin: "-60px" }}
-      variants={v}
-      transition={{ duration: 0.95, ease: [0.16, 1, 0.3, 1] }}
+      className={`relative overflow-hidden ${bgClass} ${className}`}
     >
-      <div style={{ transformStyle: "preserve-3d" }}>{children}</div>
-    </motion.section>
+      {waves && solid && <SectionWaves variant={variant} />}
+      <motion.div
+        className="relative z-[1]"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1, margin: "-40px" }}
+        variants={v}
+        transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+      >
+        {children}
+      </motion.div>
+    </section>
   );
 }

@@ -2,6 +2,7 @@ import { setRequestLocale } from "next-intl/server";
 import HeroPanoramaBackground from "@/components/HeroPanoramaBackground";
 import HeroSection from "@/components/sections/HeroSection";
 import AboutSection from "@/components/sections/AboutSection";
+import GatewaySection from "@/components/sections/GatewaySection";
 import StatsSection from "@/components/sections/StatsSection";
 import SectorsSection from "@/components/sections/SectorsSection";
 import PanoramaSection from "@/components/sections/PanoramaSection";
@@ -24,6 +25,7 @@ export default async function HomePage({
       <HeroPanoramaBackground />
       <HeroSection />
       <AboutSection />
+      <GatewaySection />
       <StatsSection />
       <SectorsSection />
       <PanoramaSection />

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  /* خلفية متوسطة — بين الفاتح والداكن */
+  /* خلفية كريمية دافئة */
   --color-primary: #1a4a8a;
   --color-primary-light: #2563b8;
   --color-primary-dark: #0f3460;
@@ -10,13 +10,13 @@
   --color-accent-dark: #1558b0;
   --color-teal: #0e7490;
   --color-teal-light: #0891b2;
-  --color-bg: #e4ebf3;
-  --color-bg-soft: #eef3f9;
-  --color-surface: #f7f9fc;
+  --color-bg: #f0e9dc;
+  --color-bg-soft: #f5efe4;
+  --color-surface: #fffefb;
   --color-surface-light: #ffffff;
   --color-text: #1a2e4a;
-  --color-text-muted: #5a7189;
-  --color-border: rgba(26, 74, 138, 0.12);
+  --color-text-muted: #5c6672;
+  --color-border: rgba(90, 72, 48, 0.12);
 }
 
 html {
@@ -57,8 +57,7 @@ h6,
 }
 
 .glass {
-  background: rgba(247, 249, 252, 0.82);
-  backdrop-filter: blur(14px);
+  background: #fffefb;
   border: 1px solid var(--color-border);
 }
 
@@ -93,6 +92,91 @@ h6,
 .section-padding {
   padding-top: 5rem;
   padding-bottom: 5rem;
+}
+
+.section-solid {
+  background-color: #fffefb;
+}
+
+.section-solid-alt {
+  background-color: #f5efe4;
+}
+
+/* موجات خفيفة في الأقسام */
+.section-waves {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.section-waves-track {
+  position: absolute;
+  left: 0;
+  display: flex;
+  width: max-content;
+  opacity: 0.045;
+}
+
+.section-waves-track svg {
+  width: 900px;
+  height: 48px;
+  flex-shrink: 0;
+}
+
+.section-waves-track path {
+  stroke: var(--color-primary);
+  stroke-width: 1;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.section-waves-track--a {
+  top: 18%;
+  animation: section-wave-slide 36s linear infinite;
+}
+
+.section-waves-track--b {
+  bottom: 14%;
+  opacity: 0.03;
+  animation: section-wave-slide-reverse 44s linear infinite;
+}
+
+.section-waves-track--v1 path {
+  stroke: var(--color-teal);
+}
+
+.section-waves-track--v2 path {
+  stroke: var(--color-accent);
+}
+
+.section-waves-track--v3 path {
+  stroke: var(--color-primary-dark);
+}
+
+@keyframes section-wave-slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-900px);
+  }
+}
+
+@keyframes section-wave-slide-reverse {
+  from {
+    transform: translateX(-900px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-waves-track {
+    animation: none !important;
+  }
 }
 
 @media (min-width: 768px) {
@@ -179,8 +263,8 @@ h6,
   height: 34rem;
   padding: 1.25rem 1rem;
   border-radius: 1.25rem;
-  background: rgba(247, 249, 252, 0.22);
-  backdrop-filter: blur(4px);
+  background: rgba(255, 254, 251, 0.88);
+  backdrop-filter: blur(6px);
   border: 1px solid rgba(255, 255, 255, 0.22);
   box-shadow: 0 4px 24px rgba(15, 52, 96, 0.06);
 }
@@ -368,11 +452,9 @@ h6,
   min-height: 9.25rem;
   padding: 0.875rem 1rem;
   border-radius: 0.875rem;
-  background: rgba(255, 255, 255, 0.52);
-  border: 2px solid rgba(30, 111, 217, 0.35);
-  box-shadow:
-    0 8px 28px rgba(26, 74, 138, 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 0.65);
+  background: #fffefb;
+  border: 2px solid rgba(30, 111, 217, 0.25);
+  box-shadow: 0 6px 20px rgba(26, 74, 138, 0.1);
 }
 
 @media (min-width: 640px) {
@@ -610,4 +692,480 @@ h6,
   inset: 10px 12px -12px;
   filter: blur(14px);
   background: rgba(15, 52, 96, 0.24);
+}
+
+/* كرة رؤية عُمان — نواة + حلقة مدارية ثلاثية الأبعاد */
+.vision-sphere-scene {
+  --sphere-size: 16rem;
+  position: relative;
+  width: var(--sphere-size);
+  height: var(--sphere-size);
+  perspective: 1100px;
+  transform-style: preserve-3d;
+}
+
+@media (min-width: 768px) {
+  .vision-sphere-scene {
+    --sphere-size: 20rem;
+  }
+}
+
+.vision-sphere-orbit {
+  position: absolute;
+  inset: -14%;
+  transform-style: preserve-3d;
+  animation: vision-orbit-spin 12s linear infinite;
+}
+
+.vision-sphere-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2.5px solid transparent;
+  transform-style: preserve-3d;
+  box-shadow:
+    0 0 22px rgba(30, 111, 217, 0.28),
+    inset 0 0 14px rgba(30, 111, 217, 0.1);
+}
+
+.vision-sphere-ring--equator {
+  border-top-color: rgba(59, 142, 240, 0.95);
+  border-left-color: rgba(30, 111, 217, 0.35);
+  border-right-color: rgba(14, 116, 144, 0.55);
+  border-bottom-color: rgba(26, 74, 138, 0.15);
+  transform: rotateX(68deg);
+}
+
+.vision-sphere-ring--meridian {
+  border-top-color: rgba(8, 145, 178, 0.75);
+  border-left-color: rgba(37, 99, 184, 0.25);
+  border-right-color: rgba(37, 99, 184, 0.25);
+  border-bottom-color: rgba(26, 74, 138, 0.1);
+  transform: rotateX(68deg) rotateY(90deg);
+  opacity: 0.85;
+}
+
+@keyframes vision-orbit-spin {
+  from {
+    transform: rotateY(0deg) rotateX(8deg);
+  }
+  to {
+    transform: rotateY(360deg) rotateX(8deg);
+  }
+}
+
+.vision-sphere-core {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid rgba(26, 74, 138, 0.22);
+  background: radial-gradient(
+    circle at 34% 28%,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(248, 243, 234, 0.85) 18%,
+    rgba(37, 99, 184, 0.18) 42%,
+    rgba(26, 74, 138, 0.28) 68%,
+    rgba(15, 52, 96, 0.42) 100%
+  );
+  box-shadow:
+    inset -10px -14px 28px rgba(15, 52, 96, 0.22),
+    inset 8px 10px 20px rgba(255, 255, 255, 0.55),
+    0 18px 48px rgba(26, 74, 138, 0.22);
+  transform-style: preserve-3d;
+  transform: translateZ(0);
+}
+
+.vision-sphere-highlight {
+  pointer-events: none;
+  position: absolute;
+  top: 12%;
+  left: 18%;
+  z-index: 1;
+  width: 28%;
+  height: 18%;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse,
+    rgba(255, 255, 255, 0.85) 0%,
+    transparent 70%
+  );
+  filter: blur(2px);
+}
+
+.vision-sphere-aura {
+  pointer-events: none;
+  position: absolute;
+  inset: -6%;
+  z-index: 0;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(30, 111, 217, 0.12) 0%,
+    transparent 70%
+  );
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* قسم بوابة الاستثمار الصناعي */
+.gateway-spin-scene {
+  perspective: 720px;
+  transform-style: preserve-3d;
+}
+
+.gateway-spin-inner-static {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.gateway-pillars-row {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+.gateway-pillar {
+  display: flex;
+  width: 9.5rem;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+@media (min-width: 1280px) {
+  .gateway-pillar {
+    width: 10.5rem;
+  }
+}
+
+.gateway-pillar-icon-wrap {
+  display: flex;
+  width: 8.75rem;
+  height: 8.75rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+}
+
+.gateway-pillar-icon-wrap--sm {
+  width: 6.5rem;
+  height: 6.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.gateway-pillar-icon {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 18px rgba(26, 74, 138, 0.18));
+  transition: filter 0.3s ease;
+}
+
+.gateway-pillar:hover .gateway-pillar-icon {
+  filter: drop-shadow(0 16px 28px rgba(26, 74, 138, 0.28));
+}
+
+.gateway-pillar-label-ar {
+  font-family: var(--font-heading);
+  margin-bottom: 0.2rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.45;
+  color: var(--color-primary-dark);
+}
+
+@media (min-width: 1280px) {
+  .gateway-pillar-label-ar {
+    font-size: 0.875rem;
+  }
+}
+
+.gateway-pillar-label-en {
+  font-size: 0.65rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 1280px) {
+  .gateway-pillar-label-en {
+    font-size: 0.7rem;
+  }
+}
+
+.gateway-pillar--mobile .gateway-pillar-label-ar {
+  font-size: 0.72rem;
+}
+
+.gateway-pillar--mobile .gateway-pillar-label-en {
+  font-size: 0.6rem;
+}
+
+.gateway-arrow {
+  opacity: 0.95;
+}
+
+.gateway-arrow--horizontal {
+  align-self: flex-start;
+  margin: 0 -0.25rem;
+  padding-top: 2.5rem;
+}
+
+.gateway-arrow--vertical {
+  margin: 0.25rem 0 0.5rem;
+  justify-content: center;
+}
+
+.gateway-pillars-stack {
+  gap: 0;
+}
+
+.gateway-oman-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  border-radius: 1.25rem;
+  border: 1px solid var(--color-border);
+  background: #ffffff;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 8px 28px rgba(90, 72, 48, 0.07);
+}
+
+@media (min-width: 768px) {
+  .gateway-oman-banner {
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2.5rem 3rem;
+  }
+}
+
+.gateway-oman-pin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 7rem;
+  height: 7rem;
+  filter: drop-shadow(0 8px 20px rgba(26, 74, 138, 0.15));
+}
+
+@media (min-width: 768px) {
+  .gateway-oman-pin {
+    width: 8rem;
+    height: 8rem;
+  }
+}
+
+.gateway-oman-text {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .gateway-oman-text {
+    text-align: start;
+  }
+}
+
+[dir="rtl"] .gateway-oman-text {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  [dir="rtl"] .gateway-oman-text {
+    text-align: start;
+  }
+}
+
+.gateway-oman-title {
+  font-family: var(--font-heading);
+  margin-bottom: 0.35rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--color-primary-dark);
+}
+
+@media (min-width: 768px) {
+  .gateway-oman-title {
+    font-size: 1.5rem;
+  }
+}
+
+.gateway-oman-subtitle {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 768px) {
+  .gateway-oman-subtitle {
+    font-size: 1rem;
+  }
+}
+
+/* مكعب إحصائيات هيكل الحدث */
+.event-cube-scene {
+  --cube-size: 13.5rem;
+  position: relative;
+  width: calc(var(--cube-size) + 4rem);
+  height: calc(var(--cube-size) + 6rem);
+  perspective: 1100px;
+  transform-style: preserve-3d;
+  cursor: grab;
+  user-select: none;
+}
+
+.event-cube-scene:active {
+  cursor: grabbing;
+}
+
+@media (min-width: 640px) {
+  .event-cube-scene {
+    --cube-size: 16rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .event-cube-scene {
+    --cube-size: 19rem;
+  }
+}
+
+.event-cube {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--cube-size);
+  height: var(--cube-size);
+  margin-top: calc(var(--cube-size) / -2);
+  margin-left: calc(var(--cube-size) / -2);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.event-cube-face {
+  position: absolute;
+  display: flex;
+  width: var(--cube-size);
+  height: var(--cube-size);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.25rem;
+  box-sizing: border-box;
+  border: 2px solid rgba(26, 74, 138, 0.18);
+  background: linear-gradient(
+    145deg,
+    rgba(255, 253, 248, 0.98) 0%,
+    rgba(252, 248, 242, 0.92) 50%,
+    rgba(240, 233, 220, 0.88) 100%
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 8px 32px rgba(26, 74, 138, 0.12);
+  backface-visibility: hidden;
+  text-align: center;
+}
+
+.event-cube-face-label {
+  max-width: 11rem;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 1024px) {
+  .event-cube-face-label {
+    max-width: 13rem;
+    font-size: 0.875rem;
+  }
+}
+
+.event-cube-face--front {
+  transform: rotateY(0deg) translateZ(calc(var(--cube-size) / 2));
+}
+
+.event-cube-face--back {
+  transform: rotateY(180deg) translateZ(calc(var(--cube-size) / 2));
+}
+
+.event-cube-face--right {
+  transform: rotateY(90deg) translateZ(calc(var(--cube-size) / 2));
+}
+
+.event-cube-face--left {
+  transform: rotateY(-90deg) translateZ(calc(var(--cube-size) / 2));
+}
+
+.event-cube-face--top,
+.event-cube-face--bottom {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-dark),
+    var(--color-primary),
+    var(--color-accent)
+  );
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.event-cube-face--top {
+  transform: rotateX(90deg) translateZ(calc(var(--cube-size) / 2));
+}
+
+.event-cube-face--bottom {
+  transform: rotateX(-90deg) translateZ(calc(var(--cube-size) / 2));
+}
+
+.event-cube-cap {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.event-cube-hint {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  opacity: 0.75;
+}
+
+@media (min-width: 768px) {
+  .event-cube-hint {
+    font-size: 0.75rem;
+  }
+}
+
+/* فوتر داكن مع اللوجو المتحرك */
+.site-footer {
+  background: linear-gradient(
+    180deg,
+    var(--color-primary-dark) 0%,
+    #0a2848 100%
+  );
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.site-footer .logo-spin-scene {
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.25));
 }

@@ -4,68 +4,76 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { siteImages } from "@/lib/site-images";
-import Card3D from "@/components/ui/Card3D";
 import SectionReveal from "@/components/ui/SectionReveal";
 import SectionHeading from "@/components/ui/SectionHeading";
+import Card3D from "@/components/ui/Card3D";
 
 export default function AboutSection() {
   const t = useTranslations("about");
 
-  const pillars = [
-    t("pillars.entrepreneurs"),
-    t("pillars.technology"),
-    t("pillars.decisionMakers"),
-    t("pillars.capital"),
-    t("pillars.zones"),
-  ];
-
   return (
-    <SectionReveal id="about" variant={0} className="section-padding">
+    <SectionReveal id="about" variant={0} tone="alt" className="section-padding">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
-        <div className="grid items-center gap-16 lg:grid-cols-2">
+        <motion.div
+          initial={{ opacity: 0, rotateX: 22, y: 36 }}
+          whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mb-10 text-center md:mb-14"
+          style={{ transformStyle: "preserve-3d" }}
+        >
+          <SectionHeading className="mb-0">{t("title")}</SectionHeading>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, rotateY: 12, scale: 0.94 }}
+          whileInView={{ opacity: 1, rotateY: 0, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.85, delay: 0.1 }}
+          className="mb-10 md:mb-14"
+          style={{ transformStyle: "preserve-3d" }}
+        >
+          <Card3D className="about-panorama-card overflow-hidden rounded-2xl border border-border shadow-lg">
+            <div className="relative aspect-[3655/1536] w-full">
+              <Image
+                src={siteImages.about}
+                alt="Oman Global Industrial Hub — Duqm"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1280px) 100vw, 1280px"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-bg/50 via-transparent to-bg/10" />
+            </div>
+          </Card3D>
+        </motion.div>
+
+        <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
           <motion.div
-            initial={{ opacity: 0, rotateY: -14, x: -40 }}
+            initial={{ opacity: 0, rotateY: -12, x: -30 }}
             whileInView={{ opacity: 1, rotateY: 0, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.15 }}
+            transition={{ duration: 0.75, delay: 0.2 }}
             style={{ transformStyle: "preserve-3d" }}
           >
-            <SectionHeading className="mb-6">{t("title")}</SectionHeading>
-            <p className="mb-4 leading-relaxed text-text-muted">{t("p1")}</p>
-            <p className="leading-relaxed text-text-muted">{t("p2")}</p>
+            <Card3D className="card-solid h-full rounded-2xl p-6 md:p-8">
+              <p className="text-base leading-[1.85] text-text-muted md:text-lg">
+                {t("p1")}
+              </p>
+            </Card3D>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, rotateY: 14, x: 40 }}
+            initial={{ opacity: 0, rotateY: 12, x: 30 }}
             whileInView={{ opacity: 1, rotateY: 0, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.25 }}
-            className="space-y-6"
+            transition={{ duration: 0.75, delay: 0.3 }}
             style={{ transformStyle: "preserve-3d" }}
           >
-            <div className="relative h-64 overflow-hidden rounded-2xl">
-              <Image
-                src={siteImages.about}
-                alt="Oman Global Industrial Hub"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-bg/80 to-transparent" />
-            </div>
-
-            <Card3D className="card-solid rounded-2xl p-8">
-              <p className="mb-6 text-lg font-medium text-primary">{t("gateway")}</p>
-              <div className="flex flex-wrap gap-3">
-                {pillars.map((pillar, i) => (
-                  <span
-                    key={i}
-                    className="rounded-full border border-teal/30 bg-teal/10 px-4 py-2 text-sm text-teal"
-                  >
-                    {pillar}
-                  </span>
-                ))}
-              </div>
+            <Card3D className="card-solid h-full rounded-2xl border-primary/15 p-6 md:p-8">
+              <p className="text-base leading-[1.85] text-text md:text-lg">
+                {t("p2")}
+              </p>
             </Card3D>
           </motion.div>
         </div>

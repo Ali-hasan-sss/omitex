@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import LogoSpin from "@/components/LogoSpin";
 
 export default function Footer() {
   const t = useTranslations("footer");
@@ -9,45 +10,50 @@ export default function Footer() {
   const contact = useTranslations("contact");
 
   return (
-    <footer className="border-t border-border bg-surface">
+    <footer className="site-footer">
       <div className="mx-auto max-w-7xl px-4 py-16 lg:px-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="flex flex-col items-center lg:items-start">
-            <p className="font-heading text-lg font-bold text-primary">OGIH 2027</p>
-            <p className="mt-4 max-w-xs text-center text-sm text-text-muted lg:text-start">
+            <Link href="/" className="mb-4 inline-flex">
+              <LogoSpin height={52} />
+            </Link>
+            <p className="max-w-xs text-center text-sm text-white/70 lg:text-start">
               {t("description")}
             </p>
           </div>
 
           <div>
-            <h3 className="font-heading mb-4 text-sm font-semibold uppercase tracking-wider text-primary">
+            <h3 className="font-heading mb-4 text-sm font-semibold uppercase tracking-wider text-white/90">
               {t("quickLinks")}
             </h3>
             <ul className="space-y-2">
-              {[nav("home"), nav("about"), nav("sectors"), nav("blog")].map(
-                (label, i) => (
-                  <li key={i}>
-                    <Link
-                      href={i === 3 ? "/blog" : "/"}
-                      className="text-sm text-text-muted transition-colors hover:text-primary"
-                    >
-                      {label}
-                    </Link>
-                  </li>
-                )
-              )}
+              {[
+                { label: nav("home"), href: "/" },
+                { label: nav("about"), href: "/#about" },
+                { label: nav("sectors"), href: "/#sectors" },
+                { label: nav("blog"), href: "/blog" },
+              ].map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="text-sm text-white/60 transition-colors hover:text-white"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div>
-            <h3 className="font-heading mb-4 text-sm font-semibold uppercase tracking-wider text-primary">
+            <h3 className="font-heading mb-4 text-sm font-semibold uppercase tracking-wider text-white/90">
               {t("services")}
             </h3>
             <ul className="space-y-2">
               <li>
                 <Link
                   href="/consultation"
-                  className="text-sm text-text-muted transition-colors hover:text-primary"
+                  className="text-sm text-white/60 transition-colors hover:text-white"
                 >
                   {nav("consultation")}
                 </Link>
@@ -55,7 +61,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/contact"
-                  className="text-sm text-text-muted transition-colors hover:text-primary"
+                  className="text-sm text-white/60 transition-colors hover:text-white"
                 >
                   {nav("contact")}
                 </Link>
@@ -64,15 +70,15 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-heading mb-4 text-sm font-semibold uppercase tracking-wider text-primary">
+            <h3 className="font-heading mb-4 text-sm font-semibold uppercase tracking-wider text-white/90">
               {t("reachUs")}
             </h3>
-            <ul className="space-y-2 text-sm text-text-muted">
+            <ul className="space-y-2 text-sm text-white/60">
               <li>{contact("info.address")}</li>
               <li>
                 <a
                   href={`mailto:${contact("info.email")}`}
-                  className="transition-colors hover:text-primary"
+                  className="transition-colors hover:text-white"
                 >
                   {contact("info.email")}
                 </a>
@@ -83,7 +89,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-border pt-8 text-center text-xs text-text-muted">
+        <div className="mt-12 border-t border-white/10 pt-8 text-center text-xs text-white/50">
           {t("rights")}
         </div>
       </div>

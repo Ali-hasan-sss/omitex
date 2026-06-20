@@ -30,7 +30,7 @@ export default function SectorsSection() {
   const t = useTranslations("sectors");
 
   return (
-    <SectionReveal id="sectors" variant={2} className="section-padding bg-surface">
+    <SectionReveal id="sectors" variant={2} tone="base" className="section-padding">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <motion.div
           initial={{ opacity: 0, rotateX: 18, y: 40 }}

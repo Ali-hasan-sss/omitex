@@ -12,7 +12,7 @@ export default function SummitSection() {
   const t = useTranslations("summit");
 
   return (
-    <SectionReveal id="summit" variant={3} className="section-padding">
+    <SectionReveal id="summit" variant={3} tone="alt" className="section-padding">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <motion.div
           initial={{ opacity: 0, rotateY: 16, y: 40 }}

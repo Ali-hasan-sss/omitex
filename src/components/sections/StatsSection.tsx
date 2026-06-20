@@ -24,7 +24,7 @@ export default function StatsSection() {
   ];
 
   return (
-    <SectionReveal variant={1} className="section-padding bg-surface">
+    <SectionReveal variant={1} tone="alt" className="section-padding">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <motion.div
           initial={{ opacity: 0, rotateX: 16, y: 40 }}

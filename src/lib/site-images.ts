@@ -23,6 +23,11 @@ export const siteImages = {
     stability: `${PDF}/img-p15-025-684x596.png`,
     zones: `${PDF}/img-p06-016-2663x1284.png`,
     trade: `${PDF}/img-p22-034-2400x1422.png`,
+    featured: {
+      duqm: `${PDF}/img-p14-024-1024x952.png`,
+      sohar: `${PDF}/img-p22-034-2400x1422.png`,
+      salalah: `${PDF}/img-p15-025-684x596.png`,
+    },
   },
 
   sectors: {
@@ -34,7 +39,17 @@ export const siteImages = {
     green: `${IMG}/sectors/green-energy.png`,
   },
 
-  about: `${PDF}/img-p04-009-5194x3670.png`,
+  about: `${PDF}/img-p02-002-3655x1536.png`,
+
+  gateway: {
+    locationPin: `${PDF}/img-p03-003-598x598.png`,
+    entrepreneurs: `${PDF}/img-p03-004-525x525.png`,
+    decisionMakers: `${PDF}/img-p03-005-525x525.png`,
+    technology: `${PDF}/img-p03-006-525x525.png`,
+    capital: `${PDF}/img-p03-007-525x525.png`,
+    zones: `${PDF}/img-p03-008-525x525.png`,
+  },
+
   summit: `${PDF}/img-p12-022-3500x2484.png`,
   vision: `${PDF}/img-p16-026-2048x1697.png`,
   stats: `${PDF}/img-p18-028-2276x1792.png`,

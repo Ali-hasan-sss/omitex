@@ -59,6 +59,34 @@
       "zones": "Industrial Zones"
     }
   },
+  "gateway": {
+    "title": "The Event Is Not a Traditional Equipment Exhibition",
+    "subtitle": "But an integrated industrial investment gateway that connects:",
+    "locationTitle": "Within a unified system in the Sultanate of Oman",
+    "locationSubtitle": "في منظومة واحدة داخل سلطنة عُمان",
+    "items": {
+      "decisionMakers": {
+        "ar": "صناع القرار",
+        "en": "Decision Makers"
+      },
+      "entrepreneurs": {
+        "ar": "رواد الأعمال الصناعيين",
+        "en": "Industrial Entrepreneurs"
+      },
+      "zones": {
+        "ar": "المناطق الصناعية",
+        "en": "Industrial Zones"
+      },
+      "capital": {
+        "ar": "رأس المال الاستثماري",
+        "en": "Venture Capital"
+      },
+      "technology": {
+        "ar": "التكنولوجيا العالمية",
+        "en": "Global Technology"
+      }
+    }
+  },
   "sectors": {
     "title": "Exhibition Sectors",
     "subtitle": "The Map of Participating Investment and Industrial Opportunities",
@@ -152,7 +180,8 @@
       "deals": "A platform designed for signing major contracts and strategic partnerships",
       "access": "Direct and exclusive access to CEOs and investors with financial authority",
       "infrastructure": "Integrated infrastructure near Muscat International Airport"
-    }
+    },
+    "cubeHint": "Hover and drag to rotate manually"
   },
   "cta": {
     "title": "Launch Toward Global Industrial Horizons",

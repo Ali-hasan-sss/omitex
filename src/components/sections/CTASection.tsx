@@ -10,9 +10,7 @@ export default function CTASection() {
   const t = useTranslations("cta");
 
   return (
-    <SectionReveal variant={3} className="section-padding relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-primary/5 to-teal/5" />
-
+    <SectionReveal variant={3} tone="alt" className="section-padding">
       <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
         <motion.div
           initial={{ opacity: 0, rotateX: 20, y: 50, scale: 0.94 }}

@@ -59,6 +59,34 @@
       "zones": "المناطق الصناعية"
     }
   },
+  "gateway": {
+    "title": "الحدث ليس معرض معدات تقليدي",
+    "subtitle": "بل بوابة استثمار صناعي متكاملة تربط :",
+    "locationTitle": "في منظومة واحدة داخل سلطنة عُمان",
+    "locationSubtitle": "Within a unified system in the Sultanate of Oman",
+    "items": {
+      "decisionMakers": {
+        "ar": "صناع القرار",
+        "en": "Decision Makers"
+      },
+      "entrepreneurs": {
+        "ar": "رواد الأعمال الصناعيين",
+        "en": "Industrial Entrepreneurs"
+      },
+      "zones": {
+        "ar": "المناطق الصناعية",
+        "en": "Industrial Zones"
+      },
+      "capital": {
+        "ar": "رأس المال الاستثماري",
+        "en": "Venture Capital"
+      },
+      "technology": {
+        "ar": "التكنولوجيا العالمية",
+        "en": "Global Technology"
+      }
+    }
+  },
   "sectors": {
     "title": "قطاعات العرض",
     "subtitle": "خارطة الفرص الاستثمارية والصناعية المشاركة",
@@ -152,7 +180,8 @@
       "deals": "منصة صُممت لتوقيع العقود الكبرى والشراكات الاستراتيجية",
       "access": "وصول مباشر وحصري للرؤساء التنفيذيين والمستثمرين",
       "infrastructure": "بنية تحتية متكاملة قرب مطار مسقط الدولي"
-    }
+    },
+    "cubeHint": "مرّر الماوس للتدوير اليدوي"
   },
   "cta": {
     "title": "انطلاقة نحو آفاق صناعية عالمية",

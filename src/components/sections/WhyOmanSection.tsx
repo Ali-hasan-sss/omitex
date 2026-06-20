@@ -20,6 +20,12 @@ const itemKeys = [
 
 const featuredPorts = ["duqm", "sohar", "salalah"] as const;
 
+const featuredPortImages: Record<(typeof featuredPorts)[number], string> = {
+  duqm: siteImages.whyOman.featured.duqm,
+  sohar: siteImages.whyOman.featured.sohar,
+  salalah: siteImages.whyOman.featured.salalah,
+};
+
 const cardImages: Record<
   (typeof itemKeys)[number],
   { src: string; contain?: boolean }
@@ -37,7 +43,7 @@ export default function WhyOmanSection() {
   const t = useTranslations("whyOman");
 
   return (
-    <SectionReveal id="why-oman" variant={1} className="section-padding">
+    <SectionReveal id="why-oman" variant={1} tone="alt" className="section-padding">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <motion.div
           initial={{ opacity: 0, rotateY: -14, y: 40 }}
@@ -61,22 +67,24 @@ export default function WhyOmanSection() {
               transition={{ delay: i * 0.1, duration: 0.75 }}
               style={{ transformStyle: "preserve-3d" }}
             >
-              <Card3D className="group relative h-64 overflow-hidden rounded-2xl">
-                <Image
-                  src={cardImages[key].src}
-                  alt={t(`items.${key}.title`)}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  sizes="(max-width: 1024px) 100vw, 33vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/85 via-primary-dark/20 to-transparent" />
-                <div className="absolute right-4 bottom-4 left-4">
-                  <p className="font-heading text-lg font-semibold text-white">
-                    {t(`items.${key}.title`)}
-                  </p>
-                  <p className="mt-1 text-sm text-white/80">
-                    {t(`items.${key}.desc`)}
-                  </p>
+              <Card3D className="group overflow-hidden rounded-2xl">
+                <div className="relative h-64 w-full overflow-hidden">
+                  <Image
+                    src={featuredPortImages[key]}
+                    alt={t(`items.${key}.title`)}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/85 via-primary-dark/20 to-transparent" />
+                  <div className="absolute right-4 bottom-4 left-4 z-10">
+                    <p className="font-heading text-lg font-semibold text-white">
+                      {t(`items.${key}.title`)}
+                    </p>
+                    <p className="mt-1 text-sm text-white/80">
+                      {t(`items.${key}.desc`)}
+                    </p>
+                  </div>
                 </div>
               </Card3D>
             </motion.div>
